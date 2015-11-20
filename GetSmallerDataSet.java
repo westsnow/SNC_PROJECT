@@ -4,7 +4,7 @@ import java.util.HashSet;
 
 
 public class GetSmallerDataSet {
-	static final int  nodeNum = 100;
+	static final int  nodeNum = 1000;
 	public static void getSmallerEdgeSet(){
 		FileInputStream fstream;
 		try {

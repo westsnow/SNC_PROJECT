@@ -7,14 +7,15 @@ import java.util.*;
 
 public class Graph {
 	//nodeId -> Node
+	
 	HashMap<Integer, Node> nodeMap;
 	HashMap<Integer, List<Integer>> groupMap;
 	ArrayList<Integer> groupIds;
 	Set<Integer> seedSet;
-	static final double groupAlpha = 1;
+	double groupAlpha = 1;
 	double maxFinalGoodNodeNumber = 0.0;
-	int iterationTime = 5;
-	final int B = 10;
+	int iterationTime = 10;
+	int B = 10;
 
 	
 	
@@ -138,7 +139,11 @@ public class Graph {
 		}
 	}
 	
-	public Graph() {
+	
+	public Graph(double groupAlpha, int iterationTime, int B) {
+		this.groupAlpha = groupAlpha;
+		this.iterationTime = iterationTime;
+		this.B = B;
 		init();
 		readData();
 		setEdgeWeight();
@@ -190,6 +195,7 @@ public class Graph {
 				
 				X[i]++;
 				double finalGoodNode = estimate(X, nodeNum, groupNum);
+				System.out.println("estimated node " + i );
 				if( finalGoodNode > maxGoodNode) {
 					maxGoodNode = finalGoodNode;
 					optimalPos = i;
